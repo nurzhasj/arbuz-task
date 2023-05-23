@@ -37,6 +37,6 @@ final class Inventory extends Model
 
     public function product(): BelongsTo
     {
-        return $this->belongsTo(Inventory::class, 'product_id', 'id');
+        return $this->belongsTo(Product::class, 'product_id', 'id');
     }
 }

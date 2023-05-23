@@ -8,6 +8,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -59,9 +60,9 @@ final class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function subscriptionPlan(): HasOne
+    public function subscriptionPlan(): BelongsTo
     {
-        return $this->hasOne(SubscriptionPlan::class, 'subscription_plan_id', 'subscription_plan_id');
+        return $this->belongsTo(SubscriptionPlan::class, 'subscription_plan_id', 'id');
     }
 
     public function addresses(): HasMany
