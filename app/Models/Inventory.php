@@ -9,13 +9,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @property int $product_id
- * @property float $weight
- * @property int $quantity
- * @property float $price
+ * @property float|null $weight
+ * @property int|null $quantity
+ * @property float|null $product_weight
+ * @property float $per_unit_price
+ * @property float $total_price
  * @property Carbon|string $created_at
  * @property Carbon|string $updated_at
  *
- * @property-read Product $productCategory
+ * @property-read Product $product
  */
 final class Inventory extends Model
 {
@@ -32,7 +34,9 @@ final class Inventory extends Model
     protected $fillable = [
         'weight',
         'quantity',
-        'price',
+        'product_weight',
+        'per_unit_price',
+        'total_price',
     ];
 
     public function product(): BelongsTo
