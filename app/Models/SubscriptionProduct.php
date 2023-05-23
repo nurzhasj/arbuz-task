@@ -12,8 +12,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property int $subscription_plan_id
  * @property int $product_id
- * @property float $weight
- * @property int $count
+ * @property float|null $weight
+ * @property int|null $count
  * @property Carbon|string $created_at
  * @property Carbon|string $updated_at
  *
